@@ -37,13 +37,11 @@ public class TC_NewUser_01 {
 		
 		WebElement Email_Box = driver.findElement(By.id("modal-signin-email"));
 		Email_Box.clear();
-		Email_Box.sendKeys("carnivour@gmail.com"); 
-		
-		
+		Email_Box.sendKeys("a@gmail.com"); 
 		
 		WebElement Pw_Box = driver.findElement(By.id("modal-signin-password"));
 		Pw_Box.clear();
-		Pw_Box.sendKeys("123@aBcde"); 
+		Pw_Box.sendKeys("123@a"); 
 		
 		driver.findElement(By.xpath("//div[@class=\"input-info js-validtips\"]")).click();
 		
@@ -94,8 +92,8 @@ public class TC_NewUser_01 {
 		
 		
 		
-		//driver.close();
-		//driver.quit();
+		driver.close();
+		driver.quit();
 	}
 
 	

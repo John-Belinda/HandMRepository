@@ -7,19 +7,16 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.interactions.Actions;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.Test;
 
 public class TC_NewUser_04 {
 	WebDriver driver;
-	 @BeforeMethod
-	void setup(){
+	 
+	TC_NewUser_04(){
 		System.setProperty("webdriver.chrome.driver",  "D:\\chromedriver_win32\\chromedriver_win32\\chromedriver.exe");
 		driver = new ChromeDriver(); 
 		driver.get("https://www2.hm.com/en_in/index.html");
 	}
-	@Test
+	
 void invalidemail_4() {
 	driver.manage().window().maximize();
 	 driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
@@ -61,19 +58,12 @@ driver.findElement(By.xpath("//div[@class=\"input-info js-validtips\"]")).click(
      WebElement emailerror = driver.findElement(By.id("modal-signin-email-email-format-error"));
      String emailerrorMessage = emailerror.getText();
      System.out.print(emailerrorMessage);
-   
-	}
-     @AfterMethod
-     void tearDown() {
-    	 driver.close();
-    	 driver.quit();
-     }
-/*}
+     
+}
 public static void main (String args[]) {
 	TC_NewUser_04  signup_4 =  new TC_NewUser_04();
 	signup_4.invalidemail_4();
 	
 	
 }
-*/
 }

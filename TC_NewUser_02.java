@@ -7,28 +7,19 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.interactions.Actions;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.Test;
 
 public class TC_NewUser_02 {
 
 	WebDriver driver;
 	
-	@BeforeMethod
-	
-	void check() {
+	TC_NewUser_02() {
 		
 		System.setProperty("webdriver.chrome.driver",  "D:\\chromedriver_win32\\chromedriver_win32\\chromedriver.exe");
-		driver = new ChromeDriver(); 
-		driver.get("https://www2.hm.com/en_in/index.html");
-	
 	}
 	
-	
-	@Test
 	void alreadyexistuser_2()  {
-	
+		driver = new ChromeDriver(); 
+		driver.get("https://www2.hm.com/en_in/index.html");
                  
 		//sign in button and become a member
 		driver.manage().window().maximize();
@@ -48,7 +39,6 @@ public class TC_NewUser_02 {
 		Email_Box.sendKeys("johnbelindaanna@gmail.com"); 
 		
 		WebElement Pw_Box = driver.findElement(By.id("modal-signin-password"));
-		//Pw_Box.click();
 		Pw_Box.clear();
 		Pw_Box.sendKeys("Belinda@333");
 		
@@ -77,17 +67,12 @@ public class TC_NewUser_02 {
  		
  		  WebElement emailError = driver.findElement(By.xpath("//span[@class=\"validation-icon icon icon-invalid\"]"));
  	 		String emailErrorMessage= emailError.getText();
- 	 		System.out.println("Already existing user");
+ 	 		System.out.println(emailErrorMessage);
  	 		
-	}
  	 		
- 	 		@AfterMethod
- 	 		void tearDown() {
- 	 		driver.close();
+ 	 		//driver.close();
  	 		//driver.quit();
- 	 		}
-	
-	/*}
+	}
 
 	public static void main(String[] args) throws InterruptedException {
 		
@@ -97,5 +82,5 @@ public class TC_NewUser_02 {
 
 			}
 
-		*/
+		
 }
